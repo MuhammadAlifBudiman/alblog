@@ -1,0 +1,52 @@
+console.info(">>> local config in repo: ", __dirname);
+
+module.exports = {
+  types: [
+    { value: "feat", name: "feat:     ✨  New feature" },
+    { value: "fix", name: "fix:      🐛  Bug fix" },
+    { value: "docs", name: "docs:     📝  Documentation changes" },
+    {
+      value: "style",
+      name: "style:    💄  Formatting/cosmetic changes without logic",
+    },
+    { value: "refactor", name: "refactor: 🔨  Code refactoring" },
+    { value: "test", name: "test:     🧪  Unit/integration tests" },
+    { value: "chore", name: "chore:    🔧  Maintenance" },
+    { value: "ci", name: "ci:       ⚙️  CI/CD configuration" },
+    { value: "build", name: "build:    🛠️  Build system or dependencies" },
+    { value: "revert", name: "revert:   ⏪  Revert commit" },
+  ],
+  scopes: [
+    { name: "animations" },
+    { name: "api" },
+    { name: "auth" },
+    { name: "changelog" },
+    { name: "common" },
+    { name: "config" },
+    { name: "core" },
+    { name: "forms" },
+    { name: "http" },
+    { name: "language-service" },
+    { name: "localization" },
+    { name: "migration" },
+    { name: "packaging" },
+    { name: "router" },
+    { name: "service-worker" },
+    { name: "upgrade" },
+    { name: "user" },
+  ],
+  allowCustomScopes: true,
+  allowBreakingChanges: ["feat", "fix"],
+  subjectLimit: 72,
+  breaklineChar: "|",
+
+  messages: {
+    type: "Select the type of change:",
+    scope: "Select the scope (or (none) if not applicable):",
+    subject: "Write a short description (max 72 characters):\n",
+    body: "Write a detailed description (optional). Use '| ' for new lines:\n",
+    breaking: "List any breaking changes (optional):",
+    footer: "Reference related issues (optional). Example: #31, #34:\n",
+    confirmCommit: "Are you sure about this commit?",
+  },
+};

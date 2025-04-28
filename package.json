@@ -19,6 +19,7 @@
     "cz-customizable": "^7.4.0",
     "husky": "^9.1.7",
     "laravel-mix": "^6.0.6",
+    "laravel-vapor": "^0.7.1",
     "lodash": "^4.17.19",
     "postcss": "^8.1.14"
   },

@@ -42,7 +42,7 @@
             <label for="image" class="form-label">Post Image</label>
             <input type="hidden" name="oldImage" value="{{ $post->image }}">
             @if ($post->image)
-            <img class="img-priview img-fluid mb-3 d-block" src="{{ asset('storage/'.$post->image) }}">
+            <img class="img-priview img-fluid mb-3 d-block" src="{{ Storage::disk('s3')->url($post->image) }}">
             @else
             <img class="img-priview img-fluid mb-3">
             @endif

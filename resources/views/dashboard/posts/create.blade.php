@@ -5,7 +5,7 @@
     <h1 class="h2">Create new post</h1>
 </div>
 <div class="col-md-12">
-    <form method="post" action="/dashboard/posts" class="mb-3" enctype="multipart/form-data">
+    <form method="post" action="/dashboard/posts" class="mb-3" enctype="multipart/form-data" id="create-form">
         @csrf 
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>

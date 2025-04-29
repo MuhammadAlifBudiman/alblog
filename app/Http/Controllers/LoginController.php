@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    /**
+     * Show the login form.
+     *
+     * This method returns the login view with a title.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         return view('login.index', [
@@ -14,6 +21,16 @@ class LoginController extends Controller
         ]);
     }
 
+    /**
+     * Authenticate the user.
+     *
+     * This method validates the login credentials, attempts to authenticate
+     * the user, and regenerates the session on success. If authentication fails,
+     * it redirects back with an error message.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
@@ -29,6 +46,14 @@ class LoginController extends Controller
         return back()->with('loginError', 'Login failed!');
     }
 
+    /**
+     * Log the user out.
+     *
+     * This method logs out the authenticated user, invalidates the session,
+     * regenerates the CSRF token, and redirects to the homepage.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function logout()
     {
         Auth::logout();

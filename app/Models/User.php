@@ -15,12 +15,16 @@ class User extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
+     * This property defines the attributes that can be mass-assigned.
+     *
      * @var array<int, string>
      */
     protected $guarded = ['id'];
 
     /**
      * The attributes that should be hidden for serialization.
+     *
+     * This property specifies the attributes to exclude from serialized output.
      *
      * @var array<int, string>
      */
@@ -32,12 +36,21 @@ class User extends Authenticatable
     /**
      * The attributes that should be cast.
      *
+     * This property defines the data types for specific attributes.
+     *
      * @var array<string, string>
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Get the posts authored by the user.
+     *
+     * This method defines a one-to-many relationship between User and Post.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function posts()
     {
         return $this->hasMany(Post::class);

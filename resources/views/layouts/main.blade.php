@@ -16,7 +16,7 @@
     {{-- My Style --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-    <title>WPU Blog | {{ $title }}</title>
+    <title>AlBlog | {{ $title }}</title>
 </head>
 
 <body>

@@ -9,6 +9,15 @@ use App\Models\User;
 
 class PostController extends Controller
 {
+    /**
+     * Display a listing of posts.
+     *
+     * This method retrieves posts from the database, applies filters for
+     * search, category, and author, and paginates the results. The posts
+     * are then passed to the 'posts' view for display.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $title = '';
@@ -29,6 +38,15 @@ class PostController extends Controller
         ]);
     }
 
+    /**
+     * Display a single post.
+     *
+     * This method retrieves a specific post and passes it to the 'post'
+     * view for display.
+     *
+     * @param  \App\Models\Post  $post
+     * @return \Illuminate\View\View
+     */
     public function show(Post $post)
     {
         return view('post', [

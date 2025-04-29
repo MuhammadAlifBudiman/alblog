@@ -31,7 +31,7 @@ Route::get('/about', function () {
         'title' => 'About',
         'name' => 'Muhammad Alif Budiman',
         'email' => 'alifm2101@gmail.com',
-        'image' => 'my-photo.jpg'
+        'image' => 'my-photo.png'
     ]);
 });
 

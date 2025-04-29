@@ -10,11 +10,14 @@ class IsAdmin
     /**
      * Handle an incoming request.
      *
+     * This middleware checks if the authenticated user is an admin.
+     * If the user is not an admin, it aborts with a 403 status code.
+     *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
+     * @param  \Closure  $next
+     * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next)
     {
         if (!auth()->check() || !auth()->user()->is_admin) {
             abort(403);

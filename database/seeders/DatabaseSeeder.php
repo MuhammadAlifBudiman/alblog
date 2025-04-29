@@ -12,6 +12,10 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      *
+     * This method populates the database with initial data, including
+     * users, categories, and posts. It uses factories and manual inserts
+     * to create the required records.
+     *
      * @return void
      */
     public function run()

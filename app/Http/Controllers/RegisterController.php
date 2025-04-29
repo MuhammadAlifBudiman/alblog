@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+    /**
+     * Show the registration form.
+     *
+     * This method returns the registration view with a title.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         return view('register.index', [
@@ -15,6 +22,16 @@ class RegisterController extends Controller
         ]);
     }
 
+    /**
+     * Handle a registration request for the application.
+     *
+     * This method validates the registration data, hashes the password,
+     * creates a new user in the database, and redirects to the login page
+     * with a success message.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(Request $request)
     {
         $validatedData = $request->validate([

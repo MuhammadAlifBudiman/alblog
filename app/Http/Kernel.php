@@ -10,6 +10,8 @@ class Kernel extends HttpKernel
      * The application's global HTTP middleware stack.
      *
      * These middleware are run during every request to your application.
+     * Examples include handling CORS, trimming strings, and converting
+     * empty strings to null.
      *
      * @var array<int, class-string|string>
      */
@@ -25,6 +27,9 @@ class Kernel extends HttpKernel
 
     /**
      * The application's route middleware groups.
+     *
+     * These groups allow you to apply middleware to specific routes.
+     * Examples include web and API middleware groups.
      *
      * @var array<string, array<int, class-string|string>>
      */

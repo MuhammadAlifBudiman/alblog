@@ -28,14 +28,18 @@ class Handler extends ExceptionHandler
     ];
 
     /**
-     * Register the exception handling callbacks for the application.
+     * Handle an incoming exception.
      *
+     * This method provides a centralized location to handle exceptions
+     * and customize their reporting or rendering.
+     *
+     * @param  \Throwable  $e
      * @return void
      */
     public function register()
     {
         $this->reportable(function (Throwable $e) {
-            //
+            // Customize exception reporting here
         });
     }
 }

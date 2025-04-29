@@ -19,7 +19,10 @@ class PostFactory extends Factory
     /**
      * Define the model's default state.
      *
-     * @return array
+     * This method generates fake data for the Post model, including
+     * title, slug, excerpt, body, user_id, and category_id.
+     *
+     * @return array<string, mixed>
      */
     public function definition()
     {

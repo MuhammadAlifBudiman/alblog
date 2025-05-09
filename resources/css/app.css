@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@source "../views";
+
+@theme {
+    --color-light-background-primary: oklch(57.7% 0.245 27.325);
+}

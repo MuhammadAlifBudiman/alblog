@@ -25315,6 +25315,14 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vapor = __webpack_require__(/*! laravel-vapor */ "./node_modules/laravel-vapor/dist/laravel-vapor.js");
+document.addEventListener("DOMContentLoaded", function () {
+  var hamburger = document.querySelector(".hamburger input");
+  var nav = document.querySelector("nav ul");
+  hamburger.addEventListener("click", function () {
+    nav.classList.toggle("translate-y-0");
+    nav.classList.toggle("opacity-100");
+  });
+});
 
 /***/ }),
 
@@ -25333,7 +25341,7 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
  */
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

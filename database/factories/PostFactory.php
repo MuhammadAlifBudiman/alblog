@@ -2,8 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\Post;
-use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Post; // Needed to specify the model this factory is for
+use App\Models\User; // Needed to fetch user IDs for associating posts with users
+use App\Models\Category; // Needed to fetch category IDs for associating posts with categories
+use Illuminate\Database\Eloquent\Factories\Factory; // Needed to extend the base Factory class
 
 class PostFactory extends Factory
 {
@@ -13,7 +15,9 @@ class PostFactory extends Factory
      *
      * @var string
      */
-    protected $model = Post::class;
+    protected $model = Post::class; // Needed to link this factory to the Post model
+    protected static $userIds; // Needed to cache user IDs for efficient data generation
+    protected static $categoryIds; // Needed to cache category IDs for efficient data generation
 
 
     /**
@@ -26,15 +30,25 @@ class PostFactory extends Factory
      */
     public function definition()
     {
+        // Cache user IDs if not already cached
+        if (!static::$userIds) {
+            static::$userIds = User::pluck('id')->toArray(); // Needed to retrieve all user IDs for associating posts with users
+        }
+
+        // Cache category IDs if not already cached
+        if (!static::$categoryIds) {
+            static::$categoryIds = Category::pluck('id')->toArray(); // Needed to retrieve all category IDs for associating posts with categories
+        }
+
         return [
-            'title' => $this->faker->sentence(mt_rand(2, 8)),
-            'slug' => $this->faker->slug(),
-            'excerpt' => $this->faker->paragraph(),
-            'body' => collect($this->faker->paragraphs(mt_rand(5, 10)))
-                ->map(fn($p) => "<p>$p</p>")
-                ->implode(''),
-            'user_id' => mt_rand(1, 3),
-            'category_id' => mt_rand(1, 3)
+            'title' => $this->faker->sentence(mt_rand(2, 8)), // Needed to generate a random title for the post
+            'slug' => $this->faker->slug(), // Needed to generate a unique slug for the post
+            'excerpt' => $this->faker->paragraph(), // Needed to generate a short excerpt for the post
+            'body' => collect($this->faker->paragraphs(mt_rand(5, 10))) // Needed to generate the main content of the post
+                ->map(fn($p) => "<p>$p</p>") // Needed to format paragraphs as HTML
+                ->implode(''), // Needed to combine all paragraphs into a single string
+            'user_id' => $this->faker->randomElement(static::$userIds), // Needed to associate the post with a random user
+            'category_id' => $this->faker->randomElement(static::$categoryIds), // Needed to associate the post with a random category
         ];
     }
 }

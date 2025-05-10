@@ -9,7 +9,7 @@ class CategoryFactory extends Factory
 {
     public function definition(): array
     {
-        $name = $this->faker->unique()->word(mt_rand(1, 3), true); // e.g., "Tech News"
+        $name = $this->faker->unique()->words(mt_rand(1, 3), true); // e.g., "Tech News"
 
         return [
             'name' => Str::title($name), // Capitalized: "Tech News"

@@ -37,13 +37,22 @@
                         {{ $post->category->name }}
                         <!-- Displays the category name as a clickable link to filter posts by the category. -->
                     </a>
+                    {{ $post->view_count }} viewed
                 </p>
 
-                <img
-                    src="https://picsum.photos/1200/400"
-                    alt="{{ $post->category->name }}"
-                    class="mb-6 h-auto w-full rounded"
-                />
+                @if ($post->image)
+                    <img
+                        src="{{ Storage::disk("s3")->url($post->image) }}"
+                        class="mb-6 h-auto w-full rounded"
+                        alt="{{ $post->image }}"
+                    />
+                @else
+                    <img
+                        src="https://picsum.photos/1200/400"
+                        class="mb-6 h-auto w-full rounded"
+                        alt="{{ $post->category->name }}"
+                    />
+                @endif
                 <!-- Displays a placeholder image with a dynamic alt text based on the category name. -->
 
                 <article class="prose prose-lg my-6 max-w-none">

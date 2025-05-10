@@ -59,11 +59,19 @@
         <div
             class="mx-auto mb-6 max-w-4xl overflow-hidden rounded-lg shadow-lg"
         >
-            <img
-                src="https://picsum.photos/1200/400"
-                alt="{{ $posts[0]->category->name }}"
-                class="h-64 w-full object-cover"
-            />
+            @if ($posts[0]->image)
+                <img
+                    src="{{ Storage::disk("s3")->url($posts[0]->image) }}"
+                    class="h-64 w-full object-cover"
+                    alt="{{ $posts[0]->category->name }}"
+                />
+            @else
+                <img
+                    src="https://picsum.photos/1200/400"
+                    class="h-64 w-full object-cover"
+                    alt="{{ $posts[0]->category->name }}"
+                />
+            @endif
             {{-- Displays a featured image for the first post, styled to fit the container. --}}
 
             <div class="p-6 text-center">
@@ -117,7 +125,7 @@
                 >
                     <div class="relative">
                         <div
-                            class="absolute top-0 left-0 z-10 bg-black/70 px-3 py-1 text-white"
+                            class="absolute top-0 left-0 z-[1] bg-black/70 px-3 py-1 text-white"
                         >
                             <a
                                 href="/posts?category={{ $post->category->slug }}"
@@ -128,11 +136,19 @@
                         </div>
                         {{-- Displays the category of the post as an overlay on the image. --}}
 
-                        <img
-                            src="https://picsum.photos/500/400?random={{ $index + 1 }}"
-                            alt="{{ $post->category->name }}"
-                            class="h-48 w-full object-cover"
-                        />
+                        @if ($post->image)
+                            <img
+                                src="{{ Storage::disk("s3")->url($post->image) }}"
+                                class="h-48 w-full object-cover"
+                                alt="{{ $post->image }}"
+                            />
+                        @else
+                            <img
+                                src="https://picsum.photos/500/400?random={{ $index + 1 }}"
+                                class="h-48 w-full object-cover"
+                                alt="{{ $post->category->name }}"
+                            />
+                        @endif
                         {{-- Displays a random image for each post, styled to fit the container. --}}
                     </div>
 

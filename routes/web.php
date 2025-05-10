@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController; // Required for handling login-related
 use App\Http\Controllers\RegisterController; // Needed for handling user registration actions.
 use App\Http\Controllers\DashboardPostController; // Required for managing posts in the dashboard.
 use App\Http\Controllers\AdminCategoryController; // Needed for managing categories in the admin dashboard.
+use App\Models\Post; // Import the Post model to fetch posts for the home page
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,8 @@ use App\Http\Controllers\AdminCategoryController; // Needed for managing categor
 Route::get('/', function () {
     return view('home', [
         'title' => 'Home', // Needed to pass the page title to the home view.
+        'newlyPosts' => Post::latest()->take(10)->get(), // Fetch the 5 most recent posts.
+        'popularPosts' => Post::orderBy('view_count', 'desc')->take(10)->get(), // Fetch the 5 most viewed posts.
     ]);
 });
 

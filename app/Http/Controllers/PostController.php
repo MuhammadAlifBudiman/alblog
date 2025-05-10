@@ -52,6 +52,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        // Increment the view_count whenever a post is viewed
+        $post->increment('view_count');
+
         return view('post', [ // Returns the 'post' view with the necessary data for rendering.
             "title" => "Single Post", // Sets the page title for the single post view.
             "active" => 'posts', // Indicates the active navigation item for UI purposes.

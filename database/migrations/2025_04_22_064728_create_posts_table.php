@@ -31,6 +31,8 @@ class CreatePostsTable extends Migration
             $table->text('excerpt');
             // Adding a body column to store the main content of the post
             $table->text('body');
+            // Adding a view_count column to track the number of views for each post
+            $table->unsignedBigInteger('view_count')->default(0);
             // Adding a timestamp column to indicate when the post was published
             $table->timestamp('published_at')->nullable();
             // Adding created_at and updated_at columns to track record creation and updates

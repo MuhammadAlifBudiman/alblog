@@ -9,7 +9,7 @@
 
     {{-- Hamburger Button --}}
     <div
-        class="hamburger relative z-[2] flex h-[20px] flex-col justify-between md:hidden"
+        class="hamburger relative z-[3] flex h-[20px] flex-col justify-between md:hidden"
     >
         <!-- Hamburger button for mobile view, hidden on larger screens -->
         <input
@@ -33,7 +33,7 @@
 
     {{-- Hamburger Menu --}}
     <ul
-        class="md:tranfrom-none bg-light-background-primary absolute top-0 right-0 z-[1] flex h-screen w-full -translate-y-full transform flex-col items-center justify-evenly opacity-0 transition-all duration-1000 ease-in-out md:static md:grid md:h-auto md:w-auto md:-translate-y-0 md:transform-none md:grid-cols-[repeat(auto-fit,minmax(0,auto))] md:items-center md:gap-[5px] md:bg-transparent md:opacity-100 md:transition-none"
+        class="md:tranfrom-none bg-light-background-primary absolute top-0 right-0 z-[2] flex h-screen w-full -translate-y-full transform flex-col items-center justify-evenly opacity-0 transition-all duration-1000 ease-in-out md:static md:grid md:h-auto md:w-auto md:-translate-y-0 md:transform-none md:grid-cols-[repeat(auto-fit,minmax(0,auto))] md:items-center md:gap-[5px] md:bg-transparent md:opacity-100 md:transition-none"
     >
         <!-- The navigation menu, styled for both mobile and desktop views -->
         <li class="w-fit">

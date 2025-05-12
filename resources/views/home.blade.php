@@ -152,7 +152,7 @@
                             <button class="mt-auto flex justify-start">
                                 <a
                                     href="/posts/{{ $post->slug }}"
-                                    class="inline-block rounded bg-blue-600 px-3 py-1 text-white transition hover:bg-blue-700"
+                                    class="inline-block cursor-pointer rounded bg-blue-600 px-3 py-1 text-white transition hover:bg-blue-700"
                                 >
                                     Read more
                                 </a>
@@ -309,7 +309,7 @@
                             <button class="mt-auto flex justify-start">
                                 <a
                                     href="/posts/{{ $post->slug }}"
-                                    class="inline-block rounded bg-blue-600 px-3 py-1 text-white transition hover:bg-blue-700"
+                                    class="inline-block cursor-pointer rounded bg-blue-600 px-3 py-1 text-white transition hover:bg-blue-700"
                                 >
                                     Read more
                                 </a>

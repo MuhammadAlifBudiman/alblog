@@ -180,7 +180,7 @@
 
                     <button
                         type="submit"
-                        class="w-full rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+                        class="w-full cursor-pointer rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
                     >
                         Register
                     </button>

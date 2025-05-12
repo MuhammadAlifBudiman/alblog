@@ -51,12 +51,6 @@
                         <td class="border border-gray-300 px-4 py-2">
                             <div class="flex space-x-2">
                                 <a
-                                    href="/dashboard/categories/{{ $category->slug }}"
-                                    class="inline-flex items-center justify-center text-blue-500 hover:underline"
-                                >
-                                    <span data-feather="eye"></span>
-                                </a>
-                                <a
                                     href="/dashboard/categories/{{ $category->slug }}/edit"
                                     class="inline-flex items-center justify-center text-yellow-500 hover:underline"
                                 >

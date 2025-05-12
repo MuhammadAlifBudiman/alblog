@@ -43,7 +43,7 @@
 
                 <button
                     type="submit"
-                    class="rounded-r-md bg-red-600 px-4 text-white transition hover:bg-red-700"
+                    class="cursor-pointer rounded-r-md bg-red-600 px-4 text-white transition hover:bg-red-700"
                 >
                     Search
                 </button>
@@ -183,7 +183,7 @@
                         <button class="mt-auto flex justify-start">
                             <a
                                 href="/posts/{{ $post->slug }}"
-                                class="inline-block rounded bg-blue-600 px-3 py-1 text-white transition hover:bg-blue-700"
+                                class="inline-block cursor-pointer rounded bg-blue-600 px-3 py-1 text-white transition hover:bg-blue-700"
                             >
                                 Read more
                             </a>

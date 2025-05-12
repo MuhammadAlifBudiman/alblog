@@ -8,7 +8,7 @@
 
     <!-- Sidebar toggle button (only visible on small screens) -->
     <button
-        class="absolute top-2 right-4 text-gray-300 hover:text-white focus:outline-none md:hidden"
+        class="absolute top-2 right-4 cursor-pointer text-gray-300 hover:text-white focus:outline-none md:hidden"
         type="button"
         aria-label="Toggle navigation"
         @click="sidebarOpen = !sidebarOpen"

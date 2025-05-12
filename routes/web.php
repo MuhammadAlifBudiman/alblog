@@ -62,4 +62,5 @@ Route::get('/dashboard', function () {
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug']); // Required to check the slug for a post in the dashboard.
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth'); // Needed to manage posts in the dashboard, restricted to authenticated users.
 
+Route::get('/dashboard/categories/checkSlug', [AdminCategoryController::class, 'checkSlug'])->middleware('admin'); // Required to check the slug for a category in the admin dashboard.
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin'); // Required to manage categories in the admin dashboard, restricted to admin users.

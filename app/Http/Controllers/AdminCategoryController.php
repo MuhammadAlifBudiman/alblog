@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AdminCategoryController extends Controller
 {
@@ -31,7 +32,7 @@ class AdminCategoryController extends Controller
      */
     public function create()
     {
-        // Implementation pending
+        return view('dashboard.categories.create');
     }
 
     /**
@@ -44,7 +45,14 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // Implementation pending
+        $validatedData = $request->validate([
+            'name' => 'required|unique:categories|max:255',
+            'slug' => 'required|unique:categories',
+        ]);
+
+        Category::create($validatedData);
+
+        return redirect('/dashboard/categories')->with('success', 'Category created successfully!');
     }
 
     /**
@@ -70,7 +78,9 @@ class AdminCategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        // Implementation pending
+        return view('dashboard.categories.edit', [
+            'category' => $category
+        ]);
     }
 
     /**
@@ -84,7 +94,14 @@ class AdminCategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        // Implementation pending
+        $validatedData = $request->validate([
+            'name' => 'required|unique:categories|max:255',
+            'slug' => 'required|unique:categories,slug,' . $category->id,
+        ]);
+
+        $category->update($validatedData);
+
+        return redirect('/dashboard/categories')->with('success', 'Category updated successfully!');
     }
 
     /**
@@ -97,6 +114,22 @@ class AdminCategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        // Implementation pending
+        $category->delete();
+
+        return redirect('/dashboard/categories')->with('success', 'Category deleted successfully!');
+    }
+
+    /**
+     * Generate a slug dynamically for a category name.
+     *
+     * This method uses the SlugService to create a slug based on the category name.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Category::class, 'slug', $request->name);
+        return response()->json(['slug' => $slug]);
     }
 }

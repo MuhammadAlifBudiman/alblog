@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController; // Needed for handling user registr
 use App\Http\Controllers\DashboardPostController; // Required for managing posts in the dashboard.
 use App\Http\Controllers\AdminCategoryController; // Needed for managing categories in the admin dashboard.
 use App\Models\Post; // Import the Post model to fetch posts for the home page
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,8 +57,22 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store']); // Needed to handle user registration form submissions.
 
 Route::get('/dashboard', function () {
-    return view('dashboard.index'); // Required to display the dashboard index page.
-})->middleware('auth'); // Needed to restrict access to authenticated users only.
+    $user = auth()->user();
+
+    $data = [
+        'user' => $user,
+        'statistics' => [
+            'totalPostsUser' => Post::where('user_id', $user->id)->count(),
+            'totalViewsUser' => Post::where('user_id', $user->id)->sum('view_count'),
+            'totalAllPosts' => Post::count(),
+            'totalAllCategories' => Category::count(),
+            'totalAllUsers' => User::count(),
+        ],
+        'recentPosts' => Post::where('user_id', $user->id)->latest()->take(5)->get(),
+    ];
+
+    return view('dashboard.index', $data);
+})->middleware('auth');
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug']); // Required to check the slug for a post in the dashboard.
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth'); // Needed to manage posts in the dashboard, restricted to authenticated users.

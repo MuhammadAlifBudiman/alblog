@@ -11,7 +11,7 @@
             @if (session()->has("success"))
                 <!-- Checks if there is a "success" message in the session and displays it. -->
                 <div
-                    class="relative mx-4 mb-4 rounded border border-green-400 bg-green-100 px-4 py-3 text-green-700"
+                    class="border-light-success-border bg-light-success-background text-light-success-text relative mx-4 mb-4 rounded border px-4 py-3"
                     role="alert"
                 >
                     {{ session("success") }}
@@ -24,7 +24,7 @@
                     >
                         <!-- Adds a close button to dismiss the success alert. -->
                         <svg
-                            class="h-6 w-6 fill-current text-green-500"
+                            class="text-light-success-text h-6 w-6 fill-current"
                             role="button"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
@@ -42,7 +42,7 @@
             @if (session()->has("loginError"))
                 <!-- Checks if there is a "loginError" message in the session and displays it. -->
                 <div
-                    class="relative mx-4 mb-4 rounded border border-red-400 bg-red-100 px-4 py-3 text-red-700"
+                    class="border-light-error-border bg-light-error-background text-light-error-text relative mx-4 mb-4 rounded border px-4 py-3"
                     role="alert"
                 >
                     {{ session("loginError") }}
@@ -55,7 +55,7 @@
                     >
                         <!-- Adds a close button to dismiss the error alert. -->
                         <svg
-                            class="h-6 w-6 fill-current text-red-500"
+                            class="text-light-error-text h-6 w-6 fill-current"
                             role="button"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
@@ -70,7 +70,7 @@
                 </div>
             @endif
 
-            <main class="mb-4 rounded bg-white px-8 pt-6 pb-8 shadow-md">
+            <main class="mb-4 rounded px-8 pt-6 pb-8 shadow-md">
                 <!-- Main container for the login form with styling for spacing, background, and shadow. -->
                 <h1 class="mb-6 text-center text-2xl font-semibold">
                     Please login
@@ -81,7 +81,7 @@
                     <!-- Adds a CSRF token for security to prevent cross-site request forgery. -->
                     <div class="mb-4">
                         <label
-                            class="mb-2 block text-sm font-bold text-gray-700"
+                            class="text-light-text-primary mb-2 block text-sm font-bold"
                             for="email"
                         >
                             Email address
@@ -92,8 +92,8 @@
                             name="email"
                             id="email"
                             @class([
-                                "focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none",
-                                "border-red-500" => $errors->has("email"),
+                                "focus:shadow-outline text-light-text-primary/70 w-full appearance-none rounded border px-3 py-2 leading-tight shadow focus:outline-none",
+                                "border-light-error-border" => $errors->has("email"),
                             ])
                             placeholder="name@example.com"
                             autofocus
@@ -103,7 +103,9 @@
                         <!-- Input field for the email address with validation and old value persistence. -->
 
                         @error("email")
-                            <p class="mt-2 text-xs text-red-500 italic">
+                            <p
+                                class="text-light-error-text mt-2 text-xs italic"
+                            >
                                 {{ $message }}
                                 <!-- Displays validation error message for the email field. -->
                             </p>
@@ -111,7 +113,7 @@
                     </div>
                     <div class="mb-6">
                         <label
-                            class="mb-2 block text-sm font-bold text-gray-700"
+                            class="text-light-text-primary mb-2 block text-sm font-bold"
                             for="password"
                         >
                             Password
@@ -121,7 +123,7 @@
                             type="password"
                             name="password"
                             id="password"
-                            class="focus:shadow-outline mb-3 w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                            class="focus:shadow-outline text-light-text-primary/70 mb-3 w-full appearance-none rounded border px-3 py-2 leading-tight shadow focus:outline-none"
                             placeholder="Password"
                             required
                         />
@@ -130,7 +132,7 @@
 
                     <div class="flex items-center justify-between">
                         <button
-                            class="w-full cursor-pointer rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+                            class="bg-light-background-primary text-light-text-secondary hover:bg-light-background-hover hover:text-light-text-primary w-full cursor-pointer rounded px-4 py-2 font-bold"
                             type="submit"
                         >
                             Login
@@ -140,7 +142,10 @@
                 </form>
                 <p class="mt-4 text-center text-sm">
                     Not registered?
-                    <a href="/register" class="text-blue-500 hover:underline">
+                    <a
+                        href="/register"
+                        class="text-light-background-primary hover:underline"
+                    >
                         Register Now!
                         <!-- Link to the registration page for new users. -->
                     </a>

@@ -1,14 +1,17 @@
 <header
-    class="sticky top-0 z-50 flex items-center justify-between bg-gray-900 p-2 shadow md:flex-nowrap"
+    class="bg-light-background-primary font-secondary sticky top-0 z-50 flex items-center justify-between p-2 shadow md:flex-nowrap"
 >
     <!-- Brand -->
-    <a href="/" class="px-3 text-lg font-semibold text-white md:w-1/4 lg:w-1/5">
+    <a
+        href="/"
+        class="text-light-text-secondary px-3 text-lg font-semibold md:w-1/4 lg:w-1/5"
+    >
         AlBlog
     </a>
 
     <!-- Sidebar toggle button (only visible on small screens) -->
     <button
-        class="absolute top-2 right-4 cursor-pointer text-gray-300 hover:text-white focus:outline-none md:hidden"
+        class="text-light-text-secondary hover:text-light-text-primary absolute top-2 right-4 cursor-pointer focus:outline-none md:hidden"
         type="button"
         aria-label="Toggle navigation"
         @click="sidebarOpen = !sidebarOpen"
@@ -35,7 +38,7 @@
             @csrf
             <button
                 type="submit"
-                class="flex cursor-pointer items-center rounded bg-gray-900 px-3 py-1 text-sm text-white hover:bg-gray-800 focus:outline-none"
+                class="bg-light-background-primary text-light-text-secondary hover:bg-light-background-hover hover:text-light-text-primary flex cursor-pointer items-center rounded px-3 py-1 text-sm focus:outline-none"
             >
                 <svg
                     class="mr-1 h-4 w-4"

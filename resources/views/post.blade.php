@@ -13,18 +13,22 @@
             <div class="w-full max-w-3xl">
                 <!-- Sets the maximum width of the content to 3xl and ensures it takes up the full width of its container. -->
 
-                <h1 class="mb-4 text-center text-3xl font-bold">
+                <h1
+                    class="mb-4 text-center text-3xl font-bold text-[var(--color-light-text-primary)]"
+                >
                     {{ $post->title }}
                     <!-- Displays the title of the post dynamically, styled as a bold, large, centered heading. -->
                 </h1>
 
-                <p class="mb-4 text-center text-gray-600">
-                    <!-- Adds a paragraph for metadata, styled with a gray color and centered alignment. -->
+                <p
+                    class="mb-4 text-center text-[var(--color-light-text-secondary)]"
+                >
+                    <!-- Adds a paragraph for metadata, styled with theme variables for color and centered alignment. -->
 
                     By.
                     <a
                         href="/posts?author={{ $post->author->username }}"
-                        class="text-blue-600 hover:underline"
+                        class="text-[var(--color-light-background-primary)] hover:underline"
                     >
                         {{ $post->author->name }}
                         <!-- Displays the author's name as a clickable link to filter posts by the author. -->
@@ -32,7 +36,7 @@
                     in
                     <a
                         href="/posts?category={{ $post->category->slug }}"
-                        class="text-blue-600 hover:underline"
+                        class="text-[var(--color-light-background-primary)] hover:underline"
                     >
                         {{ $post->category->name }}
                         <!-- Displays the category name as a clickable link to filter posts by the category. -->
@@ -40,32 +44,26 @@
                     {{ $post->view_count }} viewed
                 </p>
 
-                @if ($post->image)
-                    <img
-                        src="{{ Storage::disk("s3")->url($post->image) }}"
-                        class="mb-6 h-auto w-full rounded"
-                        alt="{{ $post->image }}"
-                    />
-                @else
-                    <img
-                        src="https://picsum.photos/1200/400"
-                        class="mb-6 h-auto w-full rounded"
-                        alt="{{ $post->category->name }}"
-                    />
-                @endif
-                <!-- Displays a placeholder image with a dynamic alt text based on the category name. -->
+                <img
+                    src="{{ $post->image ? Storage::disk("s3")->url($post->image) : "https://picsum.photos/1200/400" }}"
+                    class="mb-6 h-auto w-full rounded border border-[var(--color-light-border-primary)]"
+                    alt="{{ $post->image ? $post->image : $post->category->name }}"
+                />
+                <!-- Displays the image with a dynamic source and alt text, styled with theme variables for border color. -->
 
-                <article class="prose prose-lg my-6 max-w-none">
+                <article
+                    class="prose prose-lg my-6 max-w-none text-[var(--color-light-text-primary)]"
+                >
                     {!! $post->body !!}
-                    <!-- Renders the post body content as HTML, styled with typography classes for readability. -->
+                    <!-- Renders the post body content as HTML, styled with theme variables for text color. -->
                 </article>
 
                 <a
                     href="/posts"
-                    class="mt-6 inline-block text-blue-600 hover:underline"
+                    class="mt-6 inline-block text-[var(--color-light-background-primary)] hover:underline"
                 >
                     ← Back to posts
-                    <!-- Provides a link to navigate back to the list of posts. -->
+                    <!-- Provides a link to navigate back to the list of posts, styled with theme variables for text color. -->
                 </a>
             </div>
         </div>

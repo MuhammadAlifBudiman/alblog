@@ -96,7 +96,7 @@ class AdminCategoryController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|unique:categories|max:255',
-            'slug' => 'required|unique:categories,slug,' . $category->id,
+            'slug' => 'required|unique:categories,slug,' . $category->id, # it excludes the current category being edited (by ID), so it won’t fail if the slug hasn’t changed.
         ]);
 
         $category->update($validatedData);

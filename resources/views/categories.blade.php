@@ -3,7 +3,9 @@
 
 @section("container")
     {{-- Defines the content section for the page --}}
-    <h1 class="mb-6 text-center text-3xl font-bold">Post Categories</h1>
+    <h1 class="text-light-text-primary mb-6 text-center text-3xl font-bold">
+        Post Categories
+    </h1>
     {{-- Displays the page title with styling --}}
 
     <div class="mx-2 mb-5 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -13,7 +15,7 @@
             <a
                 href="/posts?category={{ $category->slug }}"
                 {{-- Generates a link to filter posts by category --}}
-                class="group block overflow-hidden rounded-lg shadow-lg"
+                class="group bg-light-background-secondary hover:bg-light-background-hover block overflow-hidden rounded-lg shadow-lg"
                 {{-- Adds styling for the category card --}}
             >
                 <div class="relative">
@@ -24,10 +26,10 @@
                         class="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <div
-                        class="absolute inset-0 flex items-center justify-center bg-black/60"
+                        class="bg-light-background-primary/30 absolute inset-0 flex items-center justify-center"
                     >
                         <h5
-                            class="px-4 text-center text-2xl font-semibold text-white"
+                            class="text-light-text-secondary px-4 text-center text-2xl font-semibold"
                         >
                             {{ $category->name }}
                         </h5>

@@ -10,7 +10,7 @@
         <div class="w-full max-w-lg">
             {{-- Limits the width of the form to ensure it is visually appealing and responsive. --}}
 
-            <main class="mb-4 rounded bg-white px-8 pt-6 pb-8 shadow-md">
+            <main class="mb-4 rounded px-8 pt-6 pb-8 shadow-md">
                 {{-- Creates a visually distinct card-like container for the form with padding, shadow, and rounded corners. --}}
 
                 <h1 class="mb-6 text-center text-2xl font-semibold">
@@ -30,7 +30,7 @@
 
                         <label
                             for="name"
-                            class="mb-2 block text-sm font-bold text-gray-700"
+                            class="text-light-text-primary mb-2 block text-sm font-bold"
                         >
                             Name
                         </label>
@@ -44,18 +44,20 @@
                             required
                             value="{{ old("name") }}"
                             @class([
-                                "focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none",
-                                "border-red-500" => $errors->has("name"),
+                                "focus:shadow-outline text-light-text-primary/70 w-full appearance-none rounded border px-3 py-2 leading-tight shadow focus:outline-none",
+                                "border-light-error-border" => $errors->has("name"),
                             ])
                         />
                         {{--
                             Creates a text input for the user's name with validation and styling.
                             The "old" helper retains the previous input value in case of validation errors.
-                            The "border-red-500" class highlights the field if there are validation errors.
+                            The "border-light-error-border" class highlights the field if there are validation errors.
                         --}}
 
                         @error("name")
-                            <p class="mt-2 text-xs text-red-500 italic">
+                            <p
+                                class="text-light-error-text mt-2 text-xs italic"
+                            >
                                 {{ $message }}
                             </p>
                         @enderror
@@ -69,7 +71,7 @@
 
                         <label
                             for="username"
-                            class="mb-2 block text-sm font-bold text-gray-700"
+                            class="text-light-text-primary mb-2 block text-sm font-bold"
                         >
                             Username
                         </label>
@@ -83,18 +85,20 @@
                             required
                             value="{{ old("username") }}"
                             @class([
-                                "focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none",
-                                "border-red-500" => $errors->has("username"),
+                                "focus:shadow-outline text-light-text-primary/70 w-full appearance-none rounded border px-3 py-2 leading-tight shadow focus:outline-none",
+                                "border-light-error-border" => $errors->has("username"),
                             ])
                         />
                         {{--
                             Creates a text input for the user's username with validation and styling.
                             The "old" helper retains the previous input value in case of validation errors.
-                            The "border-red-500" class highlights the field if there are validation errors.
+                            The "border-light-error-border" class highlights the field if there are validation errors.
                         --}}
 
                         @error("username")
-                            <p class="mt-2 text-xs text-red-500 italic">
+                            <p
+                                class="text-light-error-text mt-2 text-xs italic"
+                            >
                                 {{ $message }}
                             </p>
                         @enderror
@@ -108,7 +112,7 @@
 
                         <label
                             for="email"
-                            class="mb-2 block text-sm font-bold text-gray-700"
+                            class="text-light-text-primary mb-2 block text-sm font-bold"
                         >
                             Email address
                         </label>
@@ -122,18 +126,20 @@
                             required
                             value="{{ old("email") }}"
                             @class([
-                                "focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none",
-                                "border-red-500" => $errors->has("email"),
+                                "focus:shadow-outline text-light-text-primary/70 w-full appearance-none rounded border px-3 py-2 leading-tight shadow focus:outline-none",
+                                "border-light-error-border" => $errors->has("email"),
                             ])
                         />
                         {{--
                             Creates an email input for the user's email address with validation and styling.
                             The "old" helper retains the previous input value in case of validation errors.
-                            The "border-red-500" class highlights the field if there are validation errors.
+                            The "border-light-error-border" class highlights the field if there are validation errors.
                         --}}
 
                         @error("email")
-                            <p class="mt-2 text-xs text-red-500 italic">
+                            <p
+                                class="text-light-error-text mt-2 text-xs italic"
+                            >
                                 {{ $message }}
                             </p>
                         @enderror
@@ -147,7 +153,7 @@
 
                         <label
                             for="password"
-                            class="mb-2 block text-sm font-bold text-gray-700"
+                            class="text-light-text-primary mb-2 block text-sm font-bold"
                         >
                             Password
                         </label>
@@ -160,17 +166,19 @@
                             placeholder="Password"
                             required
                             @class([
-                                "focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none",
-                                "border-red-500" => $errors->has("password"),
+                                "focus:shadow-outline text-light-text-primary/70 w-full appearance-none rounded border px-3 py-2 leading-tight shadow focus:outline-none",
+                                "border-light-error-border" => $errors->has("password"),
                             ])
                         />
                         {{--
                             Creates a password input for the user's password with validation and styling.
-                            The "border-red-500" class highlights the field if there are validation errors.
+                            The "border-light-error-border" class highlights the field if there are validation errors.
                         --}}
 
                         @error("password")
-                            <p class="mt-2 text-xs text-red-500 italic">
+                            <p
+                                class="text-light-error-text mt-2 text-xs italic"
+                            >
                                 {{ $message }}
                             </p>
                         @enderror
@@ -180,7 +188,7 @@
 
                     <button
                         type="submit"
-                        class="w-full cursor-pointer rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+                        class="bg-light-background-primary text-light-text-secondary hover:bg-light-background-hover hover:text-light-text-primary w-full cursor-pointer rounded px-4 py-2 font-bold"
                     >
                         Register
                     </button>
@@ -189,7 +197,10 @@
 
                 <p class="mt-4 text-center text-sm">
                     Already registered?
-                    <a href="/login" class="text-blue-500 hover:underline">
+                    <a
+                        href="/login"
+                        class="text-light-background-primary hover:underline"
+                    >
                         Login
                     </a>
                 </p>

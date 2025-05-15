@@ -1,9 +1,12 @@
 <nav
-    class="bg-light-background-primary mx-auto grid grid-cols-[1fr_3fr] items-center justify-items-end px-4 py-3 text-white md:justify-items-normal"
+    class="text-light-text-secondary bg-light-background-primary font-secondary mx-auto grid grid-cols-2 items-center justify-items-end px-4 py-3 md:grid-cols-[1fr_6fr] md:justify-items-normal lg:grid-cols-[1fr_3fr]"
+    x-data="{ open: false }"
 >
     <!-- The main navigation container with styling for layout, colors, and responsiveness -->
     <div class="text-lg text-[1.3em] font-bold">
-        <a href="/"><h1>AlBlog</h1></a>
+        <a href="/">
+            <h1>AlBlog</h1>
+        </a>
         <!-- Logo or title of the website linking to the homepage -->
     </div>
 
@@ -15,18 +18,19 @@
         <input
             type="checkbox"
             class="peer absolute top-[-4px] left-[-6px] z-[999] h-[28px] w-[40px] cursor-pointer opacity-0"
+            @click="open = !open"
         />
         <!-- Checkbox to toggle the hamburger menu -->
         <span
-            class="block h-[3px] w-[28px] origin-[0_0] rounded-[3px] bg-white transition-all duration-500 peer-checked:-translate-x-[1px] peer-checked:-translate-y-[1px] peer-checked:rotate-45"
+            class="bg-light-text-secondary block h-[3px] w-[28px] origin-[0_0] rounded-[3px] transition-all duration-500 peer-checked:-translate-x-[1px] peer-checked:-translate-y-[1px] peer-checked:rotate-45"
         ></span>
         <!-- Top bar of the hamburger icon with animation for open/close -->
         <span
-            class="block h-[3px] w-[28px] rounded-[3px] bg-white transition-all duration-500 peer-checked:scale-0 peer-checked:opacity-0"
+            class="bg-light-text-secondary block h-[3px] w-[28px] rounded-[3px] transition-all duration-500 peer-checked:scale-0 peer-checked:opacity-0"
         ></span>
         <!-- Middle bar of the hamburger icon, hidden when menu is open -->
         <span
-            class="block h-[3px] w-[28px] origin-[0_100%] rounded-[3px] bg-white transition-all duration-500 peer-checked:-translate-x-[1px] peer-checked:translate-y-0 peer-checked:-rotate-45"
+            class="bg-light-text-secondary block h-[3px] w-[28px] origin-[0_100%] rounded-[3px] transition-all duration-500 peer-checked:-translate-x-[1px] peer-checked:translate-y-0 peer-checked:-rotate-45"
         ></span>
         <!-- Bottom bar of the hamburger icon with animation for open/close -->
     </div>
@@ -34,6 +38,8 @@
     {{-- Hamburger Menu --}}
     <ul
         class="md:tranfrom-none bg-light-background-primary absolute top-0 right-0 z-[2] flex h-screen w-full -translate-y-full transform flex-col items-center justify-evenly opacity-0 transition-all duration-1000 ease-in-out md:static md:grid md:h-auto md:w-auto md:-translate-y-0 md:transform-none md:grid-cols-[repeat(auto-fit,minmax(0,auto))] md:items-center md:gap-[5px] md:bg-transparent md:opacity-100 md:transition-none"
+        :class="{ 'translate-y-0 opacity-100': open }"
+        x-cloak
     >
         <!-- The navigation menu, styled for both mobile and desktop views -->
         <li class="w-fit">
@@ -72,6 +78,7 @@
             </a>
             <!-- Link to the Categories page with conditional styling for active state -->
         </li>
+
         @auth
             <!-- Authenticated user-specific menu items -->
             <li
@@ -109,7 +116,7 @@
                     x-transition:leave="transition duration-150 ease-in"
                     x-transition:leave-start="scale-100 opacity-100"
                     x-transition:leave-end="scale-95 opacity-0"
-                    class="absolute right-0 z-50 mt-2 w-48 rounded bg-white text-black shadow-md"
+                    class="bg-light-background-secondary text-light-text-primary absolute right-0 z-50 mt-2 w-48 rounded shadow-md"
                     style="display: none"
                     {{-- This is to prevent the dropdown from showing before Alpine.js initializes --}}
                 >
@@ -117,7 +124,7 @@
                     <li>
                         <a
                             href="/dashboard"
-                            class="flex items-center px-2 py-2 hover:bg-gray-100"
+                            class="hover:bg-light-background-hover flex items-center px-2 py-2"
                         >
                             <!-- Link to the user's dashboard -->
                             <svg
@@ -136,14 +143,16 @@
                             My Dashboard
                         </a>
                     </li>
-                    <li><hr class="my-1 border-t border-gray-300" /></li>
+                    <li>
+                        <hr class="border-light-border-primary my-1 border-t" />
+                    </li>
                     <!-- Divider between dropdown items -->
                     <li>
                         <form action="/logout" method="POST">
                             @csrf
                             <button
                                 type="submit"
-                                class="block w-full cursor-pointer px-2 py-2 text-left hover:bg-gray-100"
+                                class="hover:bg-light-background-hover block w-full cursor-pointer px-2 py-2 text-left"
                             >
                                 <!-- Logout button -->
                                 <svg
@@ -156,7 +165,7 @@
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="2"
-                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1m0-10V5m0 14a9 9 0 100-18 9 9 0 000 18z"
+                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1m0-10V5m0 14a9 9 9 0 100-18 9 9 0 000 18z"
                                     />
                                 </svg>
                                 Logout
@@ -207,7 +216,7 @@
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2"
-                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1m0-10V5m0 14a9 9 0 100-18 9 9 0 000 18z"
+                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1m0-10V5m0 14a9 9 9 0 100-18 9 9 0 000 18z"
                             />
                         </svg>
                         Logout
@@ -239,5 +248,25 @@
                 </a>
             </li>
         @endauth
+        {{-- dropdown for choosing theme --}}
+        <li class="flex w-fit items-center gap-2">
+            <label
+                for="theme-selector"
+                class="text-light-text-secondary text-sm font-medium"
+            >
+                Theme Selector:
+            </label>
+            <select
+                id="theme-selector"
+                class="bg-light-background-secondary text-light-text-primary rounded border px-2 py-1"
+            >
+                <option value="default">Default</option>
+                <option value="pastel-sunset">Pastel Sunset</option>
+                <option value="midnight-ocean">Midnight Ocean</option>
+                <option value="solar-dawn">Solar Dawn</option>
+                <option value="forest-moss">Forest Moss</option>
+                <option value="cyber-pulse">Cyber Pulse</option>
+            </select>
+        </li>
     </ul>
 </nav>

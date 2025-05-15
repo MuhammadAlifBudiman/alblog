@@ -4,7 +4,9 @@
 @section("container")
     {{-- Defines the content section named "container" to be injected into the main layout. --}}
 
-    <h1 class="mb-6 text-center text-3xl font-bold">{{ $title }}</h1>
+    <h1 class="text-light-text-primary mb-6 text-center text-3xl font-bold">
+        {{ $title }}
+    </h1>
     {{-- Displays the page title dynamically, styled as a centered, bold, and large heading. --}}
 
     <div class="mb-6">
@@ -36,14 +38,14 @@
                     type="text"
                     name="search"
                     placeholder="Search.."
-                    class="w-full rounded-l-md border border-gray-300 p-2 pr-0 focus:ring-2 focus:ring-red-500 focus:outline-none"
+                    class="border-light-border-primary focus:ring-light-success-border w-full rounded-l-md border p-2 pr-0 focus:ring-1 focus:outline-none"
                     value="{{ request("search") }}"
                 />
                 {{-- Input field for entering search keywords, styled for usability and accessibility. --}}
 
                 <button
                     type="submit"
-                    class="cursor-pointer rounded-r-md bg-red-600 px-4 text-white transition hover:bg-red-700"
+                    class="bg-light-success-background text-light-success-text hover:bg-light-success-border hover:text-light-success-background cursor-pointer rounded-r-md px-4 transition"
                 >
                     Search
                 </button>
@@ -75,28 +77,28 @@
             {{-- Displays a featured image for the first post, styled to fit the container. --}}
 
             <div class="p-6 text-center">
-                <h3 class="mb-2 text-2xl font-semibold">
+                <h3 class="text-light-text-primary mb-2 text-2xl font-semibold">
                     <a
                         href="/posts/{{ $posts[0]->slug }}"
-                        class="text-gray-900 hover:underline"
+                        class="hover:underline"
                     >
                         {{ $posts[0]->title }}
                     </a>
                 </h3>
                 {{-- Displays the title of the featured post with a link to its details. --}}
 
-                <p class="mb-2 text-sm text-gray-500">
+                <p class="text-light-text-muted mb-2 text-sm">
                     By
                     <a
                         href="/posts?author={{ $posts[0]->author->username }}"
-                        class="text-blue-600 hover:underline"
+                        class="text-light-background-primary hover:underline"
                     >
                         {{ $posts[0]->author->name }}
                     </a>
                     in
                     <a
                         href="/posts?category={{ $posts[0]->category->slug }}"
-                        class="text-blue-600 hover:underline"
+                        class="text-light-background-primary hover:underline"
                     >
                         {{ $posts[0]->category->name }}
                     </a>
@@ -104,12 +106,14 @@
                 </p>
                 {{-- Displays the author, category, and relative creation time of the featured post. --}}
 
-                <p class="mb-4 text-gray-700">{{ $posts[0]->excerpt }}</p>
+                <p class="text-light-text-primary mb-4">
+                    {{ $posts[0]->excerpt }}
+                </p>
                 {{-- Displays a short excerpt of the featured post. --}}
 
                 <a
                     href="/posts/{{ $posts[0]->slug }}"
-                    class="inline-block rounded bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700"
+                    class="bg-light-background-primary hover:bg-light-text-primary text-light-text-secondary inline-block rounded px-4 py-2 transition"
                 >
                     Read more
                 </a>
@@ -120,12 +124,10 @@
         {{-- Other Posts Grid --}}
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             @foreach ($posts->skip(1) as $index => $post)
-                <div
-                    class="flex flex-col overflow-hidden rounded-lg bg-white shadow"
-                >
+                <div class="flex flex-col overflow-hidden rounded-lg shadow">
                     <div class="relative">
                         <div
-                            class="absolute top-0 left-0 z-[1] bg-black/70 px-3 py-1 text-white"
+                            class="text-light-text-secondary bg-light-background-primary/70 absolute top-0 left-0 z-[1] px-3 py-1"
                         >
                             <a
                                 href="/posts?category={{ $post->category->slug }}"
@@ -163,11 +165,11 @@
                         </h5>
                         {{-- Displays the title of the post with a link to its details. --}}
 
-                        <p class="mb-2 text-sm text-gray-500">
+                        <p class="text-light-text-muted mb-2 text-sm">
                             By
                             <a
                                 href="/posts?author={{ $post->author->username }}"
-                                class="text-blue-600 hover:underline"
+                                class="text-light-background-primary hover:underline"
                             >
                                 {{ $post->author->name }}
                             </a>
@@ -175,7 +177,7 @@
                         </p>
                         {{-- Displays the author and relative creation time of the post. --}}
 
-                        <p class="mb-4 flex-grow text-gray-700">
+                        <p class="text-light-text-primary mb-4 flex-grow">
                             {{ $post->excerpt }}
                         </p>
                         {{-- Displays a short excerpt of the post. --}}
@@ -183,7 +185,7 @@
                         <button class="mt-auto flex justify-start">
                             <a
                                 href="/posts/{{ $post->slug }}"
-                                class="inline-block cursor-pointer rounded bg-blue-600 px-3 py-1 text-white transition hover:bg-blue-700"
+                                class="bg-light-background-primary hover:bg-light-text-primary text-light-text-secondary inline-block rounded px-4 py-2 transition"
                             >
                                 Read more
                             </a>
@@ -194,11 +196,13 @@
             @endforeach
         </div>
     @else
-        <p class="text-center text-lg text-gray-500">No post found.</p>
+        <p class="text-light-text-primary text-center text-lg">
+            No post found.
+        </p>
         {{-- Displays a message if no posts are available. --}}
     @endif
 
-    <div class="mt-6 flex justify-end">
+    <div class="mt-6 mb-6 flex justify-end">
         {{ $posts->links() }}
     </div>
     {{-- Displays pagination links for navigating through the posts. --}}

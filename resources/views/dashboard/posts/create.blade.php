@@ -4,7 +4,9 @@
     <div
         class="mb-6 flex flex-wrap items-center justify-between border-b pt-6 pb-4"
     >
-        <h1 class="text-2xl font-semibold text-gray-800">Create New Post</h1>
+        <h1 class="text-light-text-primary text-2xl font-semibold">
+            Create New Post
+        </h1>
     </div>
 
     <div class="max-w-3xl">
@@ -19,7 +21,10 @@
 
             {{-- Title --}}
             <div>
-                <label for="title" class="mb-1 block font-medium text-gray-700">
+                <label
+                    for="title"
+                    class="text-light-text-primary mb-1 block font-medium"
+                >
                     Title
                 </label>
                 <input
@@ -30,19 +35,24 @@
                     required
                     autofocus
                     @class([
-                        "block w-full rounded border px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:outline-none",
-                        "border-gray-300" => ! $errors->has("title"),
-                        "border-red-500" => $errors->has("title"),
+                        "focus:shadow-outline block w-full rounded border px-3 py-2 shadow-sm focus:outline-none",
+                        "border-light-border-secondary" => ! $errors->has("title"),
+                        "border-light-error-border" => $errors->has("title"),
                     ])
                 />
                 @error("title")
-                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    <p class="text-light-error-text mt-1 text-sm">
+                        {{ $message }}
+                    </p>
                 @enderror
             </div>
 
             {{-- Slug --}}
             <div>
-                <label for="slug" class="mb-1 block font-medium text-gray-700">
+                <label
+                    for="slug"
+                    class="text-light-text-primary mb-1 block font-medium"
+                >
                     Slug
                 </label>
                 <input
@@ -52,13 +62,15 @@
                     value="{{ old("slug") }}"
                     required
                     @class([
-                        "block w-full rounded border px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:outline-none",
-                        "border-gray-300" => ! $errors->has("slug"),
-                        "border-red-500" => $errors->has("slug"),
+                        "focus:shadow-outline block w-full rounded border px-3 py-2 shadow-sm focus:outline-none",
+                        "border-light-border-secondary" => ! $errors->has("slug"),
+                        "border-light-error-border" => $errors->has("slug"),
                     ])
                 />
                 @error("slug")
-                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    <p class="text-light-error-text mt-1 text-sm">
+                        {{ $message }}
+                    </p>
                 @enderror
             </div>
 
@@ -66,7 +78,7 @@
             <div>
                 <label
                     for="category_id"
-                    class="mb-1 block font-medium text-gray-700"
+                    class="text-light-text-primary mb-1 block font-medium"
                 >
                     Category
                 </label>
@@ -75,9 +87,9 @@
                     id="category_id"
                     required
                     @class([
-                        "block w-full rounded border px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:outline-none",
-                        "border-gray-300" => ! $errors->has("category_id"),
-                        "border-red-500" => $errors->has("category_id"),
+                        "focus:shadow-outline block w-full rounded border px-3 py-2 shadow-sm focus:outline-none",
+                        "border-light-border-secondary" => ! $errors->has("category_id"),
+                        "border-light-error-border" => $errors->has("category_id"),
                     ])
                 >
                     <option value="">--Pilih Kategori--</option>
@@ -91,13 +103,18 @@
                     @endforeach
                 </select>
                 @error("category_id")
-                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    <p class="text-light-error-text mt-1 text-sm">
+                        {{ $message }}
+                    </p>
                 @enderror
             </div>
 
             {{-- Image --}}
             <div>
-                <label for="image" class="mb-1 block font-medium text-gray-700">
+                <label
+                    for="image"
+                    class="text-light-text-primary mb-1 block font-medium"
+                >
                     Post Image
                 </label>
                 <img class="img-priview mb-2 hidden max-h-64 rounded border" />
@@ -107,19 +124,24 @@
                     id="image"
                     onchange="priviewImage()"
                     @class([
-                        "block w-full cursor-pointer text-sm text-gray-700 file:mr-4 file:rounded file:border-0 file:bg-indigo-600 file:px-4 file:py-2 file:text-white hover:file:bg-indigo-700",
-                        "border-gray-300" => ! $errors->has("image"),
-                        "border-red-500" => $errors->has("image"),
+                        "file:bg-light-background-primary file:text-light-text-secondary hover:file:bg-light-background-hover hover:file:text-light-text-primary block w-full cursor-pointer text-sm file:mr-4 file:rounded file:border-0 file:px-4 file:py-2",
+                        "border-light-border-secondary" => ! $errors->has("image"),
+                        "border-light-error-border" => $errors->has("image"),
                     ])
                 />
                 @error("image")
-                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    <p class="text-light-error-text mt-1 text-sm">
+                        {{ $message }}
+                    </p>
                 @enderror
             </div>
 
             {{-- Body --}}
             <div>
-                <label for="body" class="mb-1 block font-medium text-gray-700">
+                <label
+                    for="body"
+                    class="text-light-text-primary mb-1 block font-medium"
+                >
                     Body
                 </label>
                 <input
@@ -130,48 +152,21 @@
                 />
                 <trix-editor
                     input="body"
-                    class="trix-content rounded border border-gray-300 bg-white focus:border-indigo-500 focus:ring focus:ring-indigo-200"
+                    class="trix-content border-light-border-secondary focus:shadow-outline bg-light-background-secondary text-light-text-primary block rounded border"
                 ></trix-editor>
                 @error("body")
-                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    <p class="text-light-error-text mt-1 text-sm">
+                        {{ $message }}
+                    </p>
                 @enderror
             </div>
 
             <button
                 type="submit"
-                class="cursor-pointer rounded bg-indigo-600 px-6 py-2 text-white hover:bg-indigo-700 focus:ring focus:ring-indigo-300 focus:outline-none"
+                class="bg-light-background-primary text-light-text-secondary hover:bg-light-background-hover hover:text-light-text-primary cursor-pointer rounded px-6 py-2 focus:outline-none"
             >
                 Simpan
             </button>
         </form>
     </div>
-
-    <script>
-        const title = document.querySelector('#title');
-        const slug = document.querySelector('#slug');
-
-        title.addEventListener('change', function () {
-            fetch('/dashboard/posts/checkSlug?title=' + title.value)
-                .then((response) => response.json())
-                .then((data) => (slug.value = data.slug));
-        });
-
-        document.addEventListener('trix-file-accept', function (e) {
-            e.preventDefault();
-        });
-
-        function priviewImage() {
-            const image = document.querySelector('#image');
-            const imgPriview = document.querySelector('.img-priview');
-
-            imgPriview.style.display = 'block';
-
-            const oFReader = new FileReader();
-            oFReader.readAsDataURL(image.files[0]);
-
-            oFReader.onload = function (oFREvent) {
-                imgPriview.src = oFREvent.target.result;
-            };
-        }
-    </script>
 @endsection

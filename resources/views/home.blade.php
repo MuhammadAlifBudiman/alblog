@@ -2,29 +2,33 @@
 
 @section("container")
     <section class="mb-16 text-center">
-        <h1 class="text-5xl font-extrabold tracking-tight text-gray-800">
+        <h1
+            class="text-light-text-primary text-5xl font-extrabold tracking-tight"
+        >
             Welcome to
             <span
-                class="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent"
+                class="from-light-error-text via-light-error-border to-light-error-background bg-gradient-to-r bg-clip-text text-transparent"
             >
                 AlBlog
             </span>
         </h1>
-        <p class="mt-2 text-lg text-gray-500">
+        <p class="text-light-text-muted mt-2 text-lg">
             Discover the latest and most popular posts curated for you
         </p>
     </section>
 
     {{-- Newly Added Posts --}}
     <section class="mb-16">
-        <h2 class="mb-10 px-4 text-center text-3xl font-bold text-gray-700">
+        <h2
+            class="text-light-text-primary/80 mb-10 px-4 text-center text-3xl font-bold"
+        >
             🆕 Newly Added Posts
         </h2>
 
         @if ($newlyPosts->count())
             {{-- Featured Post --}}
             <div
-                class="mx-auto mb-10 max-w-5xl overflow-hidden rounded-2xl bg-white shadow-xl transition duration-300 hover:shadow-2xl"
+                class="bg-light-background-secondary mx-auto mb-10 max-w-5xl overflow-hidden rounded-2xl shadow-xl transition duration-300 hover:shadow-2xl"
             >
                 @if ($newlyPosts[0]->image)
                     <img
@@ -45,25 +49,25 @@
                     <h3 class="mb-2 text-2xl font-semibold">
                         <a
                             href="/posts/{{ $newlyPosts[0]->slug }}"
-                            class="text-gray-900 hover:underline"
+                            class="text-light-text-primary hover:underline"
                         >
                             {{ $newlyPosts[0]->title }}
                         </a>
                     </h3>
                     {{-- Displays the title of the featured post with a link to its details. --}}
 
-                    <p class="mb-2 text-sm text-gray-500">
+                    <p class="text-light-text-muted mb-2 text-sm">
                         By
                         <a
                             href="/posts?author={{ $newlyPosts[0]->author->username }}"
-                            class="text-blue-600 hover:underline"
+                            class="text-light-background-primary hover:underline"
                         >
                             {{ $newlyPosts[0]->author->name }}
                         </a>
                         in
                         <a
                             href="/posts?category={{ $newlyPosts[0]->category->slug }}"
-                            class="text-blue-600 hover:underline"
+                            class="text-light-background-primary hover:underline"
                         >
                             {{ $newlyPosts[0]->category->name }}
                         </a>
@@ -71,14 +75,14 @@
                     </p>
                     {{-- Displays the author, category, and relative creation time of the featured post. --}}
 
-                    <p class="mb-4 text-gray-700">
+                    <p class="text-light-text-primary mb-4">
                         {{ $newlyPosts[0]->excerpt }}
                     </p>
                     {{-- Displays a short excerpt of the featured post. --}}
 
                     <a
                         href="/posts/{{ $newlyPosts[0]->slug }}"
-                        class="inline-block rounded bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700"
+                        class="bg-light-background-primary text-light-text-secondary hover:bg-light-text-primary inline-block rounded px-4 py-2 transition"
                     >
                         Read more
                     </a>
@@ -90,11 +94,11 @@
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 @foreach ($newlyPosts->skip(1) as $index => $post)
                     <div
-                        class="flex flex-col overflow-hidden rounded-2xl bg-white shadow transition hover:shadow-lg"
+                        class="bg-light-background-secondary flex flex-col overflow-hidden rounded-2xl shadow transition hover:shadow-lg"
                     >
                         <div class="relative">
                             <div
-                                class="absolute top-0 left-0 z-[1] bg-black/70 px-3 py-1 text-white"
+                                class="text-light-text-secondary bg-light-background-primary/70 absolute top-0 left-0 z-[1] px-3 py-1"
                             >
                                 <a
                                     href="/posts?category={{ $post->category->slug }}"
@@ -125,18 +129,18 @@
                             <h5 class="mb-1 text-lg font-semibold">
                                 <a
                                     href="/posts/{{ $post->slug }}"
-                                    class="hover:underline"
+                                    class="text-light-text-primary hover:underline"
                                 >
                                     {{ $post->title }}
                                 </a>
                             </h5>
                             {{-- Displays the title of the post with a link to its details. --}}
 
-                            <p class="mb-2 text-sm text-gray-500">
+                            <p class="text-light-text-muted mb-2 text-sm">
                                 By
                                 <a
                                     href="/posts?author={{ $post->author->username }}"
-                                    class="text-blue-600 hover:underline"
+                                    class="text-light-background-primary hover:underline"
                                 >
                                     {{ $post->author->name }}
                                 </a>
@@ -144,7 +148,7 @@
                             </p>
                             {{-- Displays the author and relative creation time of the post. --}}
 
-                            <p class="mb-4 flex-grow text-gray-700">
+                            <p class="text-light-text-primary mb-4 flex-grow">
                                 {{ $post->excerpt }}
                             </p>
                             {{-- Displays a short excerpt of the post. --}}
@@ -152,7 +156,7 @@
                             <button class="mt-auto flex justify-start">
                                 <a
                                     href="/posts/{{ $post->slug }}"
-                                    class="inline-block cursor-pointer rounded bg-blue-600 px-3 py-1 text-white transition hover:bg-blue-700"
+                                    class="bg-light-background-primary text-light-text-secondary hover:bg-light-text-primary inline-block cursor-pointer rounded px-3 py-1 transition"
                                 >
                                     Read more
                                 </a>
@@ -163,7 +167,9 @@
                 @endforeach
             </div>
         @else
-            <p class="text-center text-lg text-gray-500">No post found.</p>
+            <p class="text-light-text-primary text-center text-lg">
+                No post found.
+            </p>
             {{-- Displays a message if no posts are available. --}}
         @endif
     </section>
@@ -171,7 +177,7 @@
     {{-- Popular Posts --}}
     <section>
         <h2
-            class="mt-20 mb-10 px-4 text-center text-3xl font-bold text-gray-700"
+            class="text-light-text-primary/80 mt-20 mb-10 px-4 text-center text-3xl font-bold"
         >
             🔥 Popular Posts
         </h2>
@@ -181,7 +187,7 @@
 
             {{-- Featured Post --}}
             <div
-                class="mx-auto mb-10 max-w-5xl overflow-hidden rounded-2xl bg-white shadow-xl transition duration-300 hover:shadow-2xl"
+                class="bg-light-background-secondary mx-auto mb-10 max-w-5xl overflow-hidden rounded-2xl shadow-xl transition duration-300 hover:shadow-2xl"
             >
                 @if ($popularPosts[0]->image)
                     <img
@@ -202,25 +208,25 @@
                     <h3 class="mb-2 text-2xl font-semibold">
                         <a
                             href="/posts/{{ $popularPosts[0]->slug }}"
-                            class="text-gray-900 hover:underline"
+                            class="text-light-text-primary hover:underline"
                         >
                             {{ $popularPosts[0]->title }}
                         </a>
                     </h3>
                     {{-- Displays the title of the featured post with a link to its details. --}}
 
-                    <p class="mb-2 text-sm text-gray-500">
+                    <p class="text-light-text-muted mb-2 text-sm">
                         By
                         <a
                             href="/posts?author={{ $popularPosts[0]->author->username }}"
-                            class="text-blue-600 hover:underline"
+                            class="text-light-background-primary hover:underline"
                         >
                             {{ $popularPosts[0]->author->name }}
                         </a>
                         in
                         <a
                             href="/posts?category={{ $popularPosts[0]->category->slug }}"
-                            class="text-blue-600 hover:underline"
+                            class="text-light-background-primary hover:underline"
                         >
                             {{ $popularPosts[0]->category->name }}
                         </a>
@@ -228,14 +234,14 @@
                     </p>
                     {{-- Displays the author, category, and relative creation time of the featured post. --}}
 
-                    <p class="mb-4 text-gray-700">
+                    <p class="text-light-text-primary mb-4">
                         {{ $popularPosts[0]->excerpt }}
                     </p>
                     {{-- Displays a short excerpt of the featured post. --}}
 
                     <a
                         href="/posts/{{ $popularPosts[0]->slug }}"
-                        class="inline-block rounded bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700"
+                        class="bg-light-background-primary text-light-text-secondary hover:bg-light-text-primary inline-block rounded px-4 py-2 transition"
                     >
                         Read more
                     </a>
@@ -244,14 +250,16 @@
             </div>
 
             {{-- Other Posts Grid --}}
-            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div
+                class="mb-5 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+            >
                 @foreach ($popularPosts->skip(1) as $index => $post)
                     <div
-                        class="flex flex-col overflow-hidden rounded-2xl bg-white shadow transition hover:shadow-lg"
+                        class="bg-light-background-secondary flex flex-col overflow-hidden rounded-2xl shadow transition hover:shadow-lg"
                     >
                         <div class="relative">
                             <div
-                                class="absolute top-0 left-0 z-[1] bg-black/70 px-3 py-1 text-white"
+                                class="text-light-text-secondary bg-light-background-primary/70 absolute top-0 left-0 z-[1] px-3 py-1"
                             >
                                 <a
                                     href="/posts?category={{ $post->category->slug }}"
@@ -282,18 +290,18 @@
                             <h5 class="mb-1 text-lg font-semibold">
                                 <a
                                     href="/posts/{{ $post->slug }}"
-                                    class="hover:underline"
+                                    class="text-light-text-primary hover:underline"
                                 >
                                     {{ $post->title }}
                                 </a>
                             </h5>
                             {{-- Displays the title of the post with a link to its details. --}}
 
-                            <p class="mb-2 text-sm text-gray-500">
+                            <p class="text-light-text-muted mb-2 text-sm">
                                 By
                                 <a
                                     href="/posts?author={{ $post->author->username }}"
-                                    class="text-blue-600 hover:underline"
+                                    class="text-light-background-primary hover:underline"
                                 >
                                     {{ $post->author->name }}
                                 </a>
@@ -301,7 +309,7 @@
                             </p>
                             {{-- Displays the author and relative creation time of the post. --}}
 
-                            <p class="mb-4 flex-grow text-gray-700">
+                            <p class="text-light-text-primary mb-4 flex-grow">
                                 {{ $post->excerpt }}
                             </p>
                             {{-- Displays a short excerpt of the post. --}}
@@ -309,7 +317,7 @@
                             <button class="mt-auto flex justify-start">
                                 <a
                                     href="/posts/{{ $post->slug }}"
-                                    class="inline-block cursor-pointer rounded bg-blue-600 px-3 py-1 text-white transition hover:bg-blue-700"
+                                    class="bg-light-background-primary text-light-text-secondary hover:bg-light-text-primary inline-block cursor-pointer rounded px-3 py-1 transition"
                                 >
                                     Read more
                                 </a>
@@ -320,7 +328,9 @@
                 @endforeach
             </div>
         @else
-            <p class="text-center text-lg text-gray-500">No post found.</p>
+            <p class="text-light-text-primary text-center text-lg">
+                No post found.
+            </p>
             {{-- Displays a message if no posts are available. --}}
         @endif
     </section>

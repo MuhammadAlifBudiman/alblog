@@ -5,15 +5,64 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
 ## About This Project
 
 <p align="center">
-<a href="https://github.com/MuhammadAlifBudiman"><img src="https://img.shields.io/badge/made%20by-MuhammadAlifBudiman-blue" alt="Author"></a>
-<a href="https://github.com/MuhammadAlifBudiman?tab=followers"><img src="https://img.shields.io/github/followers/MuhammadAlifBudiman?style=social" alt="Github Followers"></a>
-<a href="#"><img src="https://img.shields.io/github/stars/MuhammadAlifBudiman/alblog?style=social" alt="Github Watches"></a>
-<a href="https://github.com/MuhammadAlifBudiman/alblog/commits/main/"><img src="https://img.shields.io/github/last-commit/MuhammadAlifBudiman/alblog" alt="Github Last Commit"></a>
+  <!-- Author and Social -->
+  <a href="https://github.com/MuhammadAlifBudiman">
+    <img src="https://img.shields.io/badge/made%20by-MuhammadAlifBudiman-blue" alt="Author">
+  </a>
+  <a href="https://github.com/MuhammadAlifBudiman?tab=followers">
+    <img src="https://img.shields.io/github/followers/MuhammadAlifBudiman?style=social" alt="GitHub Followers">
+  </a>
+  <a href="https://github.com/MuhammadAlifBudiman/alblog/stargazers">
+    <img src="https://img.shields.io/github/stars/MuhammadAlifBudiman/alblog?style=social" alt="Stars">
+  </a>
+  <a href="https://github.com/MuhammadAlifBudiman/alblog/network/members">
+    <img src="https://img.shields.io/github/forks/MuhammadAlifBudiman/alblog?style=social" alt="Forks">
+  </a>
+</p>
+
+<p align="center">
+  <!-- GitHub Repo Info -->
+  <a href="https://github.com/MuhammadAlifBudiman/alblog/commits/main/">
+    <img src="https://img.shields.io/github/last-commit/MuhammadAlifBudiman/alblog" alt="Last Commit">
+  </a>
+  <a href="https://github.com/MuhammadAlifBudiman/alblog/issues">
+    <img src="https://img.shields.io/github/issues/MuhammadAlifBudiman/alblog" alt="Open Issues">
+  </a>
+  <a href="https://github.com/MuhammadAlifBudiman/alblog/pulls">
+    <img src="https://img.shields.io/github/issues-pr/MuhammadAlifBudiman/alblog" alt="Open Pull Requests">
+  </a>
+  <a href="https://github.com/MuhammadAlifBudiman/alblog/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/MuhammadAlifBudiman/alblog" alt="Contributors">
+  </a>
+  <a href="https://github.com/MuhammadAlifBudiman/alblog/actions">
+    <img src="https://github.com/MuhammadAlifBudiman/alblog/actions/workflows/deploy.yml/badge.svg" alt="Build Status">
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+  </a>
+</p>
+
+<p align="center">
+  <!-- SonarCloud Quality Metrics -->
+  <a href="https://sonarcloud.io/summary/new_code?id=MuhammadAlifBudiman_alblog">
+    <img src="https://sonarcloud.io/api/project_badges/measure?project=MuhammadAlifBudiman_alblog&metric=alert_status&token=2d3e7cc1a04fad8c47485bb16a8efb1ff3c3b015" alt="Quality Gate Status">
+  </a>
+  <a href="https://sonarcloud.io/summary/new_code?id=MuhammadAlifBudiman_alblog">
+    <img src="https://sonarcloud.io/api/project_badges/measure?project=MuhammadAlifBudiman_alblog&metric=bugs&token=2d3e7cc1a04fad8c47485bb16a8efb1ff3c3b015" alt="Bugs">
+  </a>
+  <a href="https://sonarcloud.io/summary/new_code?id=MuhammadAlifBudiman_alblog">
+    <img src="https://sonarcloud.io/api/project_badges/measure?project=MuhammadAlifBudiman_alblog&metric=code_smells&token=2d3e7cc1a04fad8c47485bb16a8efb1ff3c3b015" alt="Code Smells">
+  </a>
+  <a href="https://sonarcloud.io/summary/new_code?id=MuhammadAlifBudiman_alblog">
+    <img src="https://sonarcloud.io/api/project_badges/measure?project=MuhammadAlifBudiman_alblog&metric=coverage&token=2d3e7cc1a04fad8c47485bb16a8efb1ff3c3b015" alt="Coverage">
+  </a>
+  <a href="https://sonarcloud.io/summary/new_code?id=MuhammadAlifBudiman_alblog">
+    <img src="https://sonarcloud.io/api/project_badges/measure?project=MuhammadAlifBudiman_alblog&metric=duplicated_lines_density&token=2d3e7cc1a04fad8c47485bb16a8efb1ff3c3b015" alt="Duplicated Lines">
+  </a>
 </p>
 
 This project is a learning exercise based on the YouTube playlist **"Belajar Laravel 8"** by **Web Programming UNPAS**. It is designed to help beginners understand the Laravel framework by building a practical web application step-by-step.

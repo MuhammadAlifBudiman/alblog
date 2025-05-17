@@ -39,7 +39,10 @@
     <img src="https://img.shields.io/github/contributors/MuhammadAlifBudiman/alblog" alt="Contributors">
   </a>
   <a href="https://github.com/MuhammadAlifBudiman/alblog/actions">
-    <img src="https://github.com/MuhammadAlifBudiman/alblog/actions/workflows/deploy.yml/badge.svg" alt="Build Status">
+    <img src="https://github.com/MuhammadAlifBudiman/alblog/actions/workflows/deploy.yml/badge.svg" alt="Vapor Deploy Status">
+  </a>
+  <a href="https://github.com/MuhammadAlifBudiman/alblog/actions">
+    <img src="https://github.com/MuhammadAlifBudiman/alblog/actions/workflows/test.yml/badge.svg" alt="Test Status">
   </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-green" alt="License">

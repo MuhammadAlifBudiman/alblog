@@ -35,6 +35,9 @@ jobs:
       - name: Run tests with phpunit/phpunit
         run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
+      - name: Debug coverage file
+        run: cat coverage.xml
+
   sonarqube:
     name: SonarQube
     runs-on: ubuntu-latest

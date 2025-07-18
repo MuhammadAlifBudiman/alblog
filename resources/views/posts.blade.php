@@ -63,7 +63,7 @@
         >
             @if ($posts[0]->image)
                 <img
-                    src="{{ Storage::disk("s3")->url($posts[0]->image) }}"
+                    src="{{ Storage::url($posts[0]->image) }}"
                     class="h-64 w-full object-cover"
                     alt="{{ $posts[0]->category->name }}"
                 />
@@ -140,7 +140,7 @@
 
                         @if ($post->image)
                             <img
-                                src="{{ Storage::disk("s3")->url($post->image) }}"
+                                src="{{ Storage::url($post->image) }}"
                                 class="h-48 w-full object-cover"
                                 alt="{{ $post->image }}"
                             />

@@ -39,7 +39,7 @@
 
         @if ($post->image)
             <img
-                src="{{ Storage::disk("s3")->url($post->image) }}"
+                src="{{ Storage::url($post->image) }}"
                 class="mt-3 max-h-[350px] w-full rounded object-cover"
                 alt="{{ $post->image }}"
             />

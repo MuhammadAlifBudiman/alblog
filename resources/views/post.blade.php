@@ -45,7 +45,7 @@
                 </p>
 
                 <img
-                    src="{{ $post->image ? Storage::disk("s3")->url($post->image) : "https://picsum.photos/1200/400" }}"
+                    src="{{ $post->image ? Storage::url($post->image) : "https://picsum.photos/1200/400" }}"
                     class="mb-6 h-auto w-full rounded border border-[var(--color-light-border-primary)]"
                     alt="{{ $post->image ? $post->image : $post->category->name }}"
                 />

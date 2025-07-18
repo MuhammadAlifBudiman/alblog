@@ -6,6 +6,78 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 
+## How to Run This Project
+
+Follow these steps to set up and run the Laravel project locally:
+
+1. **Install Requirements**
+
+    - PHP 7.3 or higher
+    - Composer
+    - MySQL or another supported database
+    - (Optional) Node.js and npm for asset compilation
+
+2. **Clone the Repository**
+
+    ```bash
+    git clone https://github.com/MuhammadAlifBudiman/alblog
+    cd alblog
+    ```
+
+3. **Install PHP Dependencies**
+
+    ```bash
+    composer install
+    ```
+
+4. **Copy the Example Environment File**
+
+    ```bash
+    cp .env.example .env
+    ```
+
+5. **Set Up Environment Variables**
+
+    - Edit the `.env` file and set your database credentials and other settings as needed.
+
+6. **Generate Application Key**
+
+    ```bash
+    php artisan key:generate
+    ```
+
+7. **Run Database Migrations**
+
+    ```bash
+    php artisan migrate
+    ```
+
+8. **(Optional) Seed the Database**
+
+    ```bash
+    php artisan db:seed
+    ```
+
+9. **Create Storage Symlink**
+
+    ```bash
+    php artisan storage:link
+    ```
+
+10. **(Optional) Install Node.js Dependencies and Build Assets**
+
+    ```bash
+    npm install && npm run dev
+    ```
+
+11. **Start the Development Server**
+    ```bash
+    php artisan serve
+    ```
+    Then open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser.
+
+---
+
 ## About This Project
 
 <p align="center">

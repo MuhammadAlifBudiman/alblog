@@ -61,7 +61,7 @@ class DashboardPostController extends Controller
         ]);
 
         if ($request->file('image')) {
-            $validateData['image'] = $request->file('image')->store('post-images', 's3'); // Uploads the image to S3 storage.
+            $validateData['image'] = $request->file('image')->store('post-images'); // Uploads the image to the default storage disk.
         }
 
         $validateData['user_id'] = auth()->user()->id; // Associates the post with the authenticated user.
@@ -130,9 +130,9 @@ class DashboardPostController extends Controller
 
         if ($request->file('image')) {
             if ($request->oldImage) {
-                Storage::disk('s3')->delete($request->oldImage); // Deletes the old image from S3 storage if it exists.
+                Storage::delete($request->oldImage); // Deletes the old image from the default storage disk if it exists.
             }
-            $validateData['image'] = $request->file('image')->store('post-images', 's3'); // Uploads the new image to S3 storage.
+            $validateData['image'] = $request->file('image')->store('post-images'); // Uploads the new image to the default storage disk.
         }
 
         $validateData['user_id'] = auth()->user()->id; // Associates the post with the authenticated user.
@@ -155,7 +155,7 @@ class DashboardPostController extends Controller
     public function destroy(Post $post)
     {
         if ($post->image) {
-            Storage::disk('s3')->delete($post->image); // Deletes the associated image from S3 storage.
+            Storage::delete($post->image); // Deletes the associated image from the default storage disk.
         }
 
         Post::destroy($post->id); // Deletes the post from the database.

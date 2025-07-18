@@ -126,7 +126,7 @@
 
                 @if ($post->image)
                     <img
-                        src="{{ Storage::disk("s3")->url($post->image) }}"
+                        src="{{ Storage::url($post->image) }}"
                         class="img-priview mb-3 block max-h-64 rounded border"
                     />
                 @else
